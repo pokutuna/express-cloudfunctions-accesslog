@@ -1,0 +1,38 @@
+{
+  "name": "requestlog-cloudfunctions",
+  "version": "1.0.0",
+  "description": "a middleware to write request logs for Google Cloud Functions",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "jest",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "yarn run compile",
+    "pretest": "yarn run compile",
+    "posttest": "yarn run check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokutuna/requestlog-cloudfunctions.git"
+  },
+  "author": "pokutuna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pokutuna/requestlog-cloudfunctions/issues"
+  },
+  "homepage": "https://github.com/pokutuna/requestlog-cloudfunctions#readme",
+  "devDependencies": {
+    "@types/on-finished": "^2.3.1",
+    "gts": "^1.1.2",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "~3.7.0",
+    "@types/node": "^10.0.3"
+  },
+  "dependencies": {
+    "@google-cloud/logging": "^7.0.0",
+    "on-finished": "^2.3.0"
+  }
+}
