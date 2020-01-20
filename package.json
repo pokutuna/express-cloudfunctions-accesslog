@@ -1,9 +1,8 @@
 {
-  "name": "requestlog-cloudfunctions",
-  "version": "1.0.0",
+  "name": "@pokutuna/requestlog-cloudfunctions",
+  "version": "0.0.1",
   "description": "a middleware to write request logs for Google Cloud Functions",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "author": "pokutuna <popopopopokutuna@gmail.com>",
   "scripts": {
     "test": "jest",
     "check": "gts check",
@@ -11,18 +10,13 @@
     "compile": "tsc -p .",
     "fix": "gts fix",
     "prepare": "yarn run compile",
-    "posttest": "yarn run check"
+    "posttest": "yarn run check",
+    "prepublishOnly": "yarn run compile"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pokutuna/requestlog-cloudfunctions.git"
+  "dependencies": {
+    "@google-cloud/logging": "^7.0.0",
+    "on-finished": "^2.3.0"
   },
-  "author": "pokutuna",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/pokutuna/requestlog-cloudfunctions/issues"
-  },
-  "homepage": "https://github.com/pokutuna/requestlog-cloudfunctions#readme",
   "devDependencies": {
     "@types/express": "^4.17.2",
     "@types/jest": "^24.0.25",
@@ -36,8 +30,20 @@
     "ts-jest": "^24.3.0",
     "typescript": "~3.7.0"
   },
-  "dependencies": {
-    "@google-cloud/logging": "^7.0.0",
-    "on-finished": "^2.3.0"
-  }
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokutuna/requestlog-cloudfunctions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pokutuna/requestlog-cloudfunctions/issues"
+  },
+  "homepage": "https://github.com/pokutuna/requestlog-cloudfunctions#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
 }
