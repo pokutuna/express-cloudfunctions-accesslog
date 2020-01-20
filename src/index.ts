@@ -7,7 +7,7 @@ import {
 } from '@google-cloud/logging/build/src/middleware/context';
 import { makeHttpRequestData } from '@google-cloud/logging/build/src/middleware/express/make-http-request';
 import { StackdriverHttpRequest } from '@google-cloud/logging/build/src/http-request';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 // from https://github.com/googleapis/nodejs-logging/blob/master/src/middleware/express/make-middleware.ts
 // - add parameters to httpRequest
@@ -16,7 +16,7 @@ export function makeMiddleware(
   projectId: string,
   emitRequestLog: (httpRequest: StackdriverHttpRequest, trace: string) => void
 ) {
-  return (req: Request, res: Response, next: Function) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     const requestStartMs = Date.now();
 
     const wrapper = makeHeaderWrapper(req);
