@@ -1,5 +1,6 @@
 yarn.lock
 package-lock.json
+build/
 
 
 # Logs
