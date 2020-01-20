@@ -1,7 +1,7 @@
 import express = require('express');
 import request = require('supertest');
 
-import { makeMiddleware } from './index';
+import { makeMiddleware } from './make-middleware';
 
 const logger = jest.fn();
 const app = express();
