@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-// edited by pokutuna from
-// https://github.com/googleapis/nodejs-logging/blob/263e046603fb8dc105653b860f4936add4c45f71/src/middleware/express/make-middleware.ts
+// Modifications copyright 2020 pokutuna
+// Original: https://github.com/googleapis/nodejs-logging/blob/263e046603fb8dc105653b860f4936add4c45f71/src/middleware/express/make-middleware.ts
 
 import * as onFinished from 'on-finished';
 import {
