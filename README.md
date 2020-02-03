@@ -1,6 +1,8 @@
 @pokutuna/requestlog-cloudfunctions
 ===
 
+[![Actions Status](https://github.com/pokutuna/requestlog-cloudfunctions/workflows/test/badge.svg)](https://github.com/pokutuna/requestlog-cloudfunctions/actions)
+
 A middlewrae to write a `httpRequest` log with `trace` fields on Cloud Functions.
 
 This makes it possible to group your application logs in a HTTP request.
