@@ -1,6 +1,6 @@
 {
   "name": "@pokutuna/requestlog-cloudfunctions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a middleware to write request logs for Google Cloud Functions",
   "author": "pokutuna <popopopopokutuna@gmail.com>",
   "scripts": {
