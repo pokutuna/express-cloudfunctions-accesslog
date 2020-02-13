@@ -2,6 +2,7 @@
 ===
 
 [![Actions Status](https://github.com/pokutuna/requestlog-cloudfunctions/workflows/test/badge.svg)](https://github.com/pokutuna/requestlog-cloudfunctions/actions)
+[![npm (scoped)](https://img.shields.io/npm/v/@pokutuna/requestlog-cloudfunctions)](https://www.npmjs.com/package/@pokutuna/requestlog-cloudfunctions)
 
 A middlewrae to write a `httpRequest` log with `trace` field on Cloud Functions.
 
