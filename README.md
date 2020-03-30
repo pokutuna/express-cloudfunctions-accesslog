@@ -43,11 +43,12 @@ app.use(logHttpRequest({ projectId, logId }));
   - Write `trace` field with `projects/${projectId}/traces/${traceId}` in metadata of a entry using the client library `@google-cloud/logging`.
   ```js
   const { Logging } = require("@google-cloud/logging");
+  
   const projectId = "<YOUR_PROJECT_ID>";
   const logging = new Logging({ projectId });
   const log = logging.log("application_log");
 
-  export.app = (req, res) => {
+  exports.app = (req, res) => {
     const [traceId] = req.header("X-Cloud-Trace-Context").split("/");
     const trace = `projects/${projectId}/traces/${traceId}`;
 
