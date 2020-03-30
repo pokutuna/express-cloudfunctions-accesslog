@@ -4,9 +4,9 @@
 [![Actions Status](https://github.com/pokutuna/requestlog-cloudfunctions/workflows/test/badge.svg)](https://github.com/pokutuna/requestlog-cloudfunctions/actions)
 [![npm (scoped)](https://img.shields.io/npm/v/@pokutuna/requestlog-cloudfunctions)](https://www.npmjs.com/package/@pokutuna/requestlog-cloudfunctions)
 
-A middlewrae to write a `httpRequest` log with `trace` field on Cloud Functions.
+A middleware to write an `httpRequest` log with `trace` field on Cloud Functions.
 
-This makes it possible to group your application logs in a HTTP request.
+This makes it possible to group your application logs in an HTTP request.
 
 ![log-grouping](./log-grouping.png)
 
@@ -38,6 +38,24 @@ app.use(logHttpRequest({ projectId, logId }));
 - (Recommend) use `@google-cloud/logging-winston` or `@google-cloud/logging-bunyan`
   - see [Setting Up Stackdriver Logging for Node.js  |  Stackdriver Logging  |  Google Cloud](https://cloud.google.com/logging/docs/setup/nodejs)
   - These libraries provide `req.log(...)` method considering the trace field.
-- Or write `trace` field by yourself.
+- Or write the `trace` field by yourself.
   - The `X-Cloud-Trace-Context` request header contains `${traceId}/${spanId}`
   - Write `trace` field with `projects/${projectId}/traces/${traceId}` in metadata of a entry using the client library `@google-cloud/logging`.
+  ```js
+  const { Logging } = require("@google-cloud/logging");
+  const projectId = "<YOUR_PROJECT_ID>";
+  const logging = new Logging({ projectId });
+  const log = logging.log("application_log");
+
+  export.app = (req, res) => {
+    const [traceId] = req.header("X-Cloud-Trace-Context").split("/");
+    const trace = `projects/${projectId}/traces/${traceId}`;
+
+    // log.entry(metadata, data)
+    const entry = log.entry(
+      { trace },
+      { message: "this is a message", obj: { key: "value" } }
+    );
+    await log.write(entry);
+  };
+  ```
