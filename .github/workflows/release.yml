@@ -1,5 +1,5 @@
 ---
-# npm version patch && push
+# $ npm version [ patch | minor | major ] && git push origin --tags
 name: release
 on:
   push:
